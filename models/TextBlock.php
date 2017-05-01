@@ -3,12 +3,8 @@
 namespace app\models;
 
 use Yii;
-use yii\base\Model;
 use yii\db\ActiveRecord;
 
-/**
- * ContactForm is the model behind the contact form.
- */
 class TextBlock extends ActiveRecord
 {
     static function tableName() {
@@ -20,13 +16,6 @@ class TextBlock extends ActiveRecord
         return [
             [['id'], 'required'],
             [['text', 'name'], 'string']
-        ];
-    }
-
-    public function attributeLabels()
-    {
-        return [
-            'verifyCode' => 'Verification Code',
         ];
     }
 
