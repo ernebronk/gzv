@@ -49,6 +49,26 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionLogin()
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->goHome();
+        }
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        }
+        return $this->render('login', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        return $this->redirect('index');
+    }
+
     public function actionNews()
     {
         return $this->render('news');
@@ -60,5 +80,33 @@ class SiteController extends Controller
     public function actionContact()
     {
         return $this->render('contact');
+    }
+    public function actionActivities()
+    {
+        return $this->render('activities');
+    }
+    public function actionScouting()
+    {
+        return $this->render('scouting');
+    }
+    public function actionBranches()
+    {
+        return $this->render('branches');
+    }
+    public function actionFleet()
+    {
+        return $this->render('fleet');
+    }
+    public function actionMember()
+    {
+        return $this->render('member');
+    }
+    public function actionScoutshop()
+    {
+        return $this->render('scoutshop');
+    }
+    public function actionFollowUs()
+    {
+        return $this->render('follow-us');
     }
 }

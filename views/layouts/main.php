@@ -13,18 +13,7 @@ use yii\helpers\Url;
 AppAsset::register($this);
 
 
-$menuItems = [
-    ["label" => "Home", "url" => ["/site/index"]],
-    ["label" => "Nieuws", "url" => ["/site/news"]],
-    ["label" => "Activiteiten", "url" => ["/site/activities"]],
-    ["label" => "Scouting", "url" => ["/site/activities"]],
-    ["label" => "Speltakken", "url" => ["/site/activities"]],
-    ["label" => "De vloot", "url" => ["/site/activities"]],
-    ["label" => "Lid worden", "url" => ["/site/activities"]],
-    ["label" => "Scoutshop", "url" => ["/site/activities"]],
-    ["label" => "Vol ons op..", "url" => ["/site/activities"]],
 
-];
 
 
 ?>
@@ -54,9 +43,16 @@ $menuItems = [
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'MENU', 'url' => ['/site/index'], 'items' => $menuItems],
+                ['label' => 'MENU', 'url' => ['/site/index'], 'items' => Yii::$app->params['menuItems']],
                 ['label' => 'CONTACT', 'url' => ['/site/contact']],
                 ['label' => 'ROUTE', 'url' => ['/site/route']],
+                Yii::$app->user->isGuest ? ("") :
+                [
+                    "label" => "ADMIN", 'items' => [
+                        ['label' => "Bewerken" , 'url' => ['/admin/index', 'page' => Yii::$app->controller->action->id]],
+                        ['label' => "Logout (" . Yii::$app->user->identity->username . ")" , 'url' => ['/site/logout']]
+                    ]
+                ]
             ],
         ]);
         NavBar::end();
@@ -102,7 +98,7 @@ $menuItems = [
                 <h1 style="color:red;">Menu</h1>
                 <hr>
                     <div class="list-group menu">
-                        <?php foreach($menuItems as $item): ?>
+                        <?php foreach(Yii::$app->params['menuItems'] as $item): ?>
                             <a href="<?= Url::to($item['url']) ?>" class="list-group-item <?= '/'.Yii::$app->urlManager->parseRequest(Yii::$app->request)[0] == $item['url'][0] ? 'active' : '' ?>"><?= $item["label"] ?></a>
                         <?php endforeach; ?>
 

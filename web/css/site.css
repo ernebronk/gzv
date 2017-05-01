@@ -28,7 +28,12 @@ nav {
     margin-top: 20px;
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .active > a {
+    background-color: #1a368d;
+    color: white;
+}
+
+.list-group-item.active {
     background-color: #1a368d;
     color: white;
 }

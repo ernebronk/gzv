@@ -2,21 +2,22 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Nieuws - Gorinchemse Zeeverkenners';
+$this->title = 'Scouting - Gorinchemse Zeeverkenners';
 
 use yii\helpers\Url;
 use app\models\TextBlock;
+
 ?>
 <div class="site-index">
     <div class="body-content">
 
             <div class="col-md-12">
-                <h1>Nieuws</h1>
+                <h1>Scouting</h1>
                 <hr>
             </div>
 
             <div class="col-md-12">
-                <?= TextBlock::render("news"); ?>
+                <?= TextBlock::render("scouting") ?>
             </div>
 
     </div>

@@ -44,7 +44,13 @@ $config = [
             'rules' => [
                 "/" => "site/index",
                 "/nieuws" => "site/news",
-                "/contact" => "site/contact"
+                "/contact" => "site/contact",
+                "/activiteiten" => "site/activities",
+                "/speltakken" => "site/branches",
+                "/vloot" => "site/fleet",
+                "/lid-worden" => "site/member",
+                "/scoutshop" => "site/scoutshop",
+                "/volg-ons" => "site/follow-us"
             ],
         ],
     ],

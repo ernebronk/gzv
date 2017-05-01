@@ -5,6 +5,8 @@
 $this->title = 'Route - Gorinchemse Zeeverkenners';
 
 use yii\helpers\Url;
+use app\models\TextBlock;
+
 ?>
 <div class="site-index">
     <div class="body-content">
@@ -15,7 +17,7 @@ use yii\helpers\Url;
             </div>
 
             <div class="col-md-12">
-                <code>Not available</code>
+                <?= TextBlock::render("route") ?>
             </div>
 
     </div>
