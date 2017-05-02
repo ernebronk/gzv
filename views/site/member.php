@@ -5,7 +5,7 @@
 $this->title = 'Lid worden! - Gorinchemse Zeeverkenners';
 
 use yii\helpers\Url;
-use app\models\TextBlock;
+use app\models\Page;
 
 ?>
 <div class="site-index">
@@ -17,7 +17,7 @@ use app\models\TextBlock;
             </div>
 
             <div class="col-md-12">
-                <?= TextBlock::render("member") ?>
+                <?= Page::render("member") ?>
             </div>
 
     </div>

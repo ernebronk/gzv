@@ -8,7 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\TextBlock;
+use app\models\Page;
 
 class AdminController extends Controller
 {
@@ -46,7 +46,7 @@ class AdminController extends Controller
 
     public function actionIndex($page = 'home')
     {
-        $block = TextBlock::find()->where(["name" => $page])->one();
+        $block = Page::find()->where(["name" => $page])->one();
         if(Yii::$app->request->isPost) {
             $block->load(Yii::$app->request->post());
             $block->save();

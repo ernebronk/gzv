@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 use yii\db\ActiveRecord;
 
-class TextBlock extends ActiveRecord
+class Page extends ActiveRecord
 {
     static function tableName() {
         return 'pages';
