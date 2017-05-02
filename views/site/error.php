@@ -18,10 +18,6 @@ $this->title = $name;
     </div>
 
     <p>
-        The above error occurred while the Web server was processing your request.
+        Oeps, er is iets mis gegaan bij het laden van de pagina. De foutmelding staat hierboven beschreven.
     </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
-    </p>
-
 </div>

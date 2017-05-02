@@ -6,7 +6,6 @@ $this->title = 'Gorinchemse Zeeverkenners';
 use yii\helpers\Url;
 use app\models\Page;
 
-$page = Page::get($page);
 $this->params['index'] = $page->index;
 
 ?>

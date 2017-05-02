@@ -6,6 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
+use app\models\LoginForm;
 use app\models\Page;
 
 class SiteController extends Controller
@@ -45,6 +46,7 @@ class SiteController extends Controller
 
     public function actionIndex($page = "home")
     {
+        $page = Page::get($page);
         return $this->render('page', ["page" => $page]);
     }
 
@@ -76,7 +78,7 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-        return $this->redirect('index');
+        return $this->actionIndex();
     }
 
 }

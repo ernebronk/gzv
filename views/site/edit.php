@@ -23,11 +23,10 @@ $this->params['admin'] = true;
             </div>
 
             <div class="col-md-12">
+                <?php $form = ActiveForm::begin(); ?>
                 <?= Html::submitButton("Opslaan", ["class" => "btn btn-success"]) ?>
                 <?= Html::a("Ga naar " . $model->name, Url::to($model->url), ["class" => "btn btn-default"]); ?></br>
                 Je bewerkt nu de pagina <b><?= $model->name ?></b>.
-                <?php $form = ActiveForm::begin(); ?>
-
                 <?= $form->field($model, 'text')->widget(TinyMce::className(), [
                     'options' => ['rows' => 18],
                     'language' => 'nl',

@@ -21,7 +21,7 @@ class Page extends ActiveRecord
 
     public static function get($name) {
         if(parent::find()->where(["index" => $name])->count() == 0) {
-            return "Oeps, er is iets mis gegaan.";
+            throw new \yii\web\HttpException(404, 'De pagina die je zoekt bestaat niet.');
         }
         return parent::find()->where(["index" => $name])->one();
     }
