@@ -100,7 +100,7 @@ AppAsset::register($this);
                 <hr>
                     <div class="list-group menu">
                         <?php foreach(Page::sideMenu() as $item): ?>
-                            <a href="<?= Url::to($item['url']) ?>" class="list-group-item <?= "/".$this->params['index'] == $item['url'] ? 'active' : '' ?>"><?= $item["label"] ?></a>
+                            <a href="<?= Url::to($item['url']) ?>" class="list-group-item <?= $this->params['index'] == $item['url'] ? 'active' : '' ?>"><?= $item["label"] ?></a>
                         <?php endforeach; ?>
 
                     </div>

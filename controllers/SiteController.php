@@ -6,8 +6,7 @@ use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\Page;
 
 class SiteController extends Controller
 {
@@ -22,7 +21,7 @@ class SiteController extends Controller
                 'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['logout', 'edit'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -47,6 +46,17 @@ class SiteController extends Controller
     public function actionIndex($page = "home")
     {
         return $this->render('page', ["page" => $page]);
+    }
+
+
+    public function actionEdit($page = 'home')
+    {
+        $block = Page::find()->where(["index" => $page])->one();
+        if(Yii::$app->request->isPost) {
+            $block->load(Yii::$app->request->post());
+            $block->save();
+        }
+        return $this->render('edit', ['model' => $block]);
     }
 
     public function actionLogin()

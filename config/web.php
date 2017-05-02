@@ -44,6 +44,7 @@ $config = [
             'rules' => [
                 "/" => "site/index",
                 "/home" => "site/index",
+                "/edit" => "site/edit",
                 "<page:[\w-]+>" => "/site/index"
             ],
         ],

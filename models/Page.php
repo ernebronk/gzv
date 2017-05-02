@@ -32,7 +32,7 @@ class Page extends ActiveRecord
         ];
 
         $items = parent::find()
-            ->select("name as label, url")
+            ->select("name as label, `index` as url")
             ->where("top_index is not null")
             ->orderBy("top_index ASC")
             ->asArray()
@@ -45,7 +45,7 @@ class Page extends ActiveRecord
         if(!Yii::$app->user->isGuest) {
             array_push($topMenu, [
                 "label" => "Admin", 'items' => [
-                    ['label' => "Bewerken" , 'url' => ['/admin/index', 'page' => $currentPage]],
+                    ['label' => "Bewerken" , 'url' => ['edit', 'page' => $currentPage]],
                     ['label' => "Logout (" . Yii::$app->user->identity->username . ")" , 'url' => ['/site/logout']]
                 ]
             ]);
@@ -56,7 +56,7 @@ class Page extends ActiveRecord
 
     public static function sideMenu() {
         return parent::find()
-            ->select("name as label, url")
+            ->select("name as label,`index` as url")
             ->where("side_index is not null")
             ->orderBy("side_index ASC")
             ->asArray()
