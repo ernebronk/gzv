@@ -19,12 +19,48 @@ class Page extends ActiveRecord
         ];
     }
 
-    public static function render($name) {
-        if(parent::find()->where(["name" => $name])->count() == 0) {
+    public static function get($name) {
+        if(parent::find()->where(["index" => $name])->count() == 0) {
             return "Oeps, er is iets mis gegaan.";
         }
+        return parent::find()->where(["index" => $name])->one();
+    }
 
-        return parent::find()->where(["name" => $name])->one()->text;
+    public static function topMenu($currentPage) {
+        $topMenu = [
+            ['label' => 'Menu', 'url' => '', 'items' => self::sideMenu()]
+        ];
+
+        $items = parent::find()
+            ->select("name as label, url")
+            ->where("top_index is not null")
+            ->orderBy("top_index ASC")
+            ->asArray()
+            ->all();
+
+        foreach($items as $item) {
+            array_push($topMenu, $item);
+        }
+
+        if(!Yii::$app->user->isGuest) {
+            array_push($topMenu, [
+                "label" => "Admin", 'items' => [
+                    ['label' => "Bewerken" , 'url' => ['/admin/index', 'page' => $currentPage]],
+                    ['label' => "Logout (" . Yii::$app->user->identity->username . ")" , 'url' => ['/site/logout']]
+                ]
+            ]);
+        }
+
+        return $topMenu;
+    }
+
+    public static function sideMenu() {
+        return parent::find()
+            ->select("name as label, url")
+            ->where("side_index is not null")
+            ->orderBy("side_index ASC")
+            ->asArray()
+            ->all();
     }
 
 }

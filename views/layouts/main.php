@@ -9,12 +9,9 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use yii\helpers\Url;
+use app\models\Page;
 
 AppAsset::register($this);
-
-
-
-
 
 ?>
 <?php $this->beginPage() ?>
@@ -33,6 +30,10 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+<?php
+    //Page::menu();
+ ?>
+
 <div class="wrap">
     <div class="container">
         <?php
@@ -45,18 +46,7 @@ AppAsset::register($this);
         ]);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
-            'items' => [
-                ['label' => 'MENU', 'url' => ['/site/index'], 'items' => Yii::$app->params['menuItems']],
-                ['label' => 'CONTACT', 'url' => ['/site/contact']],
-                ['label' => 'ROUTE', 'url' => ['/site/route']],
-                Yii::$app->user->isGuest ? ("") :
-                [
-                    "label" => "ADMIN", 'items' => [
-                        ['label' => "Bewerken" , 'url' => ['/admin/index', 'page' => Yii::$app->controller->action->id]],
-                        ['label' => "Logout (" . Yii::$app->user->identity->username . ")" , 'url' => ['/site/logout']]
-                    ]
-                ]
-            ],
+            'items' => Page::topMenu($this->params['index']),
         ]);
         NavBar::end();
         ?>
@@ -95,25 +85,31 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
-        <div class="row">
 
+
+    <?php if(isset($this->params['admin'])): ?>
+        <div class="row">
+            <div class="col-md-12">
+                <?= $content ?>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="row">
             <div class="hidden-xs hidden-sm col-md-3">
                 <h1 style="color:red;">Menu</h1>
                 <hr>
                     <div class="list-group menu">
-                        <?php foreach(Yii::$app->params['menuItems'] as $item): ?>
-                            <a href="<?= Url::to($item['url']) ?>" class="list-group-item <?= '/'.Yii::$app->urlManager->parseRequest(Yii::$app->request)[0] == $item['url'][0] ? 'active' : '' ?>"><?= $item["label"] ?></a>
+                        <?php foreach(Page::sideMenu() as $item): ?>
+                            <a href="<?= Url::to($item['url']) ?>" class="list-group-item <?= "/".$this->params['index'] == $item['url'] ? 'active' : '' ?>"><?= $item["label"] ?></a>
                         <?php endforeach; ?>
 
                     </div>
             </div>
-
             <div class="col-md-9">
                 <?= $content ?>
             </div>
-
-
         </div>
+    <?php endif; ?>
     </div>
 </div>
 

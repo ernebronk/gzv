@@ -43,14 +43,8 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 "/" => "site/index",
-                "/nieuws" => "site/news",
-                "/contact" => "site/contact",
-                "/activiteiten" => "site/activities",
-                "/speltakken" => "site/branches",
-                "/vloot" => "site/fleet",
-                "/lid-worden" => "site/member",
-                "/scoutshop" => "site/scoutshop",
-                "/volg-ons" => "site/follow-us"
+                "/home" => "site/index",
+                "<page:[\w-]+>" => "/site/index"
             ],
         ],
     ],

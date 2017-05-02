@@ -44,9 +44,9 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex($page = "home")
     {
-        return $this->render('index');
+        return $this->render('page', ["page" => $page]);
     }
 
     public function actionLogin()
@@ -69,44 +69,4 @@ class SiteController extends Controller
         return $this->redirect('index');
     }
 
-    public function actionNews()
-    {
-        return $this->render('news');
-    }
-    public function actionRoute()
-    {
-        return $this->render('route');
-    }
-    public function actionContact()
-    {
-        return $this->render('contact');
-    }
-    public function actionActivities()
-    {
-        return $this->render('activities');
-    }
-    public function actionScouting()
-    {
-        return $this->render('scouting');
-    }
-    public function actionBranches()
-    {
-        return $this->render('branches');
-    }
-    public function actionFleet()
-    {
-        return $this->render('fleet');
-    }
-    public function actionMember()
-    {
-        return $this->render('member');
-    }
-    public function actionScoutshop()
-    {
-        return $this->render('scoutshop');
-    }
-    public function actionFollowUs()
-    {
-        return $this->render('follow-us');
-    }
 }

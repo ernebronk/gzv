@@ -8,6 +8,10 @@ use dosamigos\tinymce\TinyMce;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
+$this->params['index'] = $model->index;
+$this->params['admin'] = true;
+
+
 
 ?>
 <div class="site-index">
@@ -19,6 +23,8 @@ use yii\helpers\Html;
             </div>
 
             <div class="col-md-12">
+                <?= Html::submitButton("Opslaan", ["class" => "btn btn-success"]) ?>
+                <?= Html::a("Ga naar " . $model->name, Url::to($model->url), ["class" => "btn btn-default"]); ?></br>
                 Je bewerkt nu de pagina <b><?= $model->name ?></b>.
                 <?php $form = ActiveForm::begin(); ?>
 
@@ -35,7 +41,6 @@ use yii\helpers\Html;
                     ]
                 ]);?>
 
-                <?= Html::submitButton("Opslaan", ["class" => "btn btn-success"]) ?>
                 <?php ActiveForm::end(); ?>
 
                 <h3>Voorbeeld</h3>

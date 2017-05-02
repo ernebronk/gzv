@@ -46,7 +46,7 @@ class AdminController extends Controller
 
     public function actionIndex($page = 'home')
     {
-        $block = Page::find()->where(["name" => $page])->one();
+        $block = Page::find()->where(["index" => $page])->one();
         if(Yii::$app->request->isPost) {
             $block->load(Yii::$app->request->post());
             $block->save();
