@@ -25,7 +25,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="keywords" content="GZV, scouting, Gorinchemse Zeeverkenners, Gorinchem">
     <meta name="author" content="Gorinchemse Zeekverkenners">
-    <meta name="description" content="Website van scouting Gorinchemse Zeeverkenners">
+    <meta name="description" content="Website van Scouting Gorinchemse Zeeverkenners">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -37,7 +37,7 @@ AppAsset::register($this);
     <div class="container">
         <?php
         NavBar::begin([
-            'brandLabel' => "GZV",
+            'brandLabel' => "Scouting GZV",
             'brandUrl' => Yii::$app->homeUrl,
             'options' => [
                 'class' => 'navbar-default navbar-fixed-top',

@@ -8,6 +8,13 @@ body {
     border-radius: 0px!important;
 }
 
+
+.navbar-brand {
+  font-family: 'urbanjungle';
+  /*font-size: 100px;*/
+  margin: 0px;
+}
+
 .nav {
     font-weight: bold;
 }
