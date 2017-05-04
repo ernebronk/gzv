@@ -46,8 +46,9 @@ $config = [
                 "/home" => "site/index",
                 "/edit" => "site/edit",
                 "/logout" => "site/logout",
+                "/images" => "site/image",
                 //"/login" => "site/logout",
-                "<page:[\w-]+>" => "/site/index"
+                "<page:[\w-]+>" => "site/index"
             ],
         ],
     ],
