@@ -8,6 +8,9 @@ body {
     border-radius: 0px!important;
 }
 
+.img-table {
+    max-width: 50px;
+}
 
 .navbar-brand {
   font-family: 'urbanjungle';

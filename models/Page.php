@@ -46,6 +46,7 @@ class Page extends ActiveRecord
             array_push($topMenu, [
                 "label" => "Admin", 'items' => [
                     ['label' => "Bewerken" , 'url' => ['edit', 'page' => $currentPage]],
+                    ['label' => "Plaatjes" , 'url' => ['image']],
                     ['label' => "Logout (" . Yii::$app->user->identity->username . ")" , 'url' => ['/site/logout']]
                 ]
             ]);
