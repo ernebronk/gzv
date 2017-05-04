@@ -32,7 +32,7 @@ $this->params['admin'] = true;
                     'language' => 'nl',
                     'clientOptions' => [
                         'plugins' => [
-                            "advlist autolink lists link charmap print preview anchor",
+                            "advlist autolink lists link charmap print preview anchor image",
                             "searchreplace visualblocks code fullscreen",
                             "insertdatetime media table contextmenu paste"
                         ],
