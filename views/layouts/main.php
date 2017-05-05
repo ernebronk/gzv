@@ -81,20 +81,14 @@ AppAsset::register($this);
       <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <img src="<?= Url::to("@web/img/header/", true) ?>header_01.jpg" alt="...">
+              <img src="<?= Url::to("@web/img/header/", true) ?>header_1.jpg" alt="...">
             </div>
-            <div class="item">
-              <img src="<?= Url::to("@web/img/header/", true) ?>header_02.jpg" alt="...">
-            </div>
-            <div class="item">
-              <img src="<?= Url::to("@web/img/header/", true) ?>header_03.jpg" alt="...">
-            </div>
-            <div class="item">
-              <img src="<?= Url::to("@web/img/header/", true) ?>header_04.jpg" alt="...">
-            </div>
-            <div class="item">
-              <img src="<?= Url::to("@web/img/header/", true) ?>header_05.jpg" alt="...">
-            </div>
+
+            <?php for($i=2;$i<16;$i++): ?>
+                <div class="item">
+                  <img src="<?= Url::to("@web/img/header/", true) ?>header_<?= $i ?>.jpg" alt="...">
+                </div>
+            <?php endfor; ?>
           </div>
 
       <!-- Controls -->
