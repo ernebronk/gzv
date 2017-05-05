@@ -8,6 +8,12 @@ body {
     border-radius: 0px!important;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .img-table {
     max-width: 50px;
 }
