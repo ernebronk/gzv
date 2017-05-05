@@ -19,10 +19,16 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="keywords" content="GZV, scouting, Gorinchemse Zeeverkenners, Gorinchem">
     <meta name="author" content="<?= Html::encode($this->title) ?>">
     <meta name="description" content="Website van Scouting Gorinchemse Zeeverkenners">
+
+    <meta property="og:title" content="<?= Html::encode($this->title) ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?= Url::to(["site/index"], true) ?>" />
+    <meta property="og:image" content="<?= Url::to(["site/img", "id" => 1], true) ?>" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>

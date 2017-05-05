@@ -79,6 +79,9 @@ class SiteController extends Controller
         if(!$image) {
             throw new \yii\web\HttpException(400, 'Het plaatje dat je wilt verwijderen is niet gevonden');
         }
+        if($image->static) {
+            throw new \yii\web\HttpException(401, 'Het plaatje dat je wilt verwijderen is beschermd tegen verwijderen.');
+        }
         $image->delete();
         return $this->redirect("image");
     }
