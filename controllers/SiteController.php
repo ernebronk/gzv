@@ -55,6 +55,9 @@ class SiteController extends Controller
 
     public function actionEdit($page = 'home')
     {
+        if(Page::find()->where(["index" => $page])->count() == 0) {
+            throw new \yii\web\HttpException(401, 'De pagina die je probeert te bewerken is niet te bewerken!');
+        }
         $block = Page::find()->where(["index" => $page])->one();
         if(Yii::$app->request->isPost) {
             $block->load(Yii::$app->request->post());
