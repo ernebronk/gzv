@@ -21,7 +21,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="keywords" content="GZV, scouting, Gorinchemse Zeeverkenners, Gorinchem">
-    <meta name="author" content="Gorinchemse Zeekverkenners">
+    <meta name="author" content="<?= Html::encode($this->title) ?>">
     <meta name="description" content="Website van Scouting Gorinchemse Zeeverkenners">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
