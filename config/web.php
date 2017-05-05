@@ -47,7 +47,7 @@ $config = [
                 "/edit" => "site/edit",
                 "/logout" => "site/logout",
                 "/images" => "site/image",
-                //"/login" => "site/logout",
+                "/login" => "site/logout",
                 "<page:[\w-]+>" => "site/index"
             ],
         ],
