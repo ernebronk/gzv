@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'Gorinchemse Zeeverkenners';
+$this->title = (isset($page->title) ? $page->title . " - " : "" ) . 'Gorinchemse Zeeverkenners';
 use yii\helpers\Url;
 use app\models\Page;
 
